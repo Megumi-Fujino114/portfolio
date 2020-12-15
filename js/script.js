@@ -46,13 +46,22 @@ $(function () {
     return false;
   });
 
+  //---------------------------
+// // ローディングアニメーション
+//---------------------------
+
+	setTimeout(function(){
+		$('.start p').fadeIn(1600);
+	},500); //0.5秒後にロゴをフェードイン!
+	setTimeout(function(){
+		$('.start').fadeOut(500);
+	},4500); //3.5秒後にロゴ含め真っ白背景をフェードアウト！
+
 //---------------------------
 // ここからtitle文字アニメーション
 //---------------------------
 
 var container = $(".demoTxt");
-// アニメーションスピード
-var speed = 200;
 
 // テキストの間にスペースを入れます
 var content = $(container).html();
@@ -68,45 +77,38 @@ text.split("").forEach(function(v) {
 // spanで囲んだテキスト群をHTMLに戻す
 $(container).html(newHtml);
 
-// 開始の時間を遅らせる
-// setTimeout(function(){
-//   $(".demoTxt").stop().animate({opacity:'1'},1000);
-// },4000);
-
-// $(function(){
-//   // 3.8秒後に出力する
-//   setTimeout(function(){
-//       $('.demoTxt').append(container);
-//   }, 4500);
-
-// });
 
 // 1文字ずつ表示
 var txtNum = 0;
+setTimeout(function(){
 setInterval(function() {
   $(container).find('span').eq(txtNum).css({opacity: 1});
  txtNum++
-}, speed);
-
-// 3.8秒後に出力する
-$(function(){
-  $(".demoTxt").stop().animate({opacity:'1'},1000);
-}, 3800);
-
+},500);
+},5000);
 
 //---------------------------
-// // ローディングアニメーション
-//---------------------------
+// ここからportfolio文字アニメーション
+// --------------------------
+setInterval(function() {
+  $('.logo-subtitle').fadeIn();
+}, 12500);
 
-// $(function() {
-// 	setTimeout(function(){
-// 		$('.start p').fadeIn(1600);
-// 	},500); //0.5秒後にロゴをフェードイン!
-// 	setTimeout(function(){
-// 		$('.start').fadeOut(500);
-// 	},3500); //3.5秒後にロゴ含め真っ白背景をフェードアウト！
+//---------------------------
+// ここからlist表示アニメーション
+// --------------------------
+
+// /* 変数 lists に #list li を格納 */
+// var lists = $("#list li");
+ 
+// /* lists の透明度 を 0 に */
+// lists.css({opacity: 0});
+ 
+// /* lists を一つずつ処理 */
+// lists.each(function(i){
+ 
+// /* delay() で animate（）の実行を 200ミリ秒ずつ遅延 */
+// $(this).delay(200*i).animate({opacity:1});
+ 
 // });
-
-
-
 });
